@@ -43,7 +43,7 @@ def currency_exchange_rate(currency_from, currency_to):
 
     session = requests.Session()    
     r = session.get(urls)
-    print(r.status_code)
+    # print(r.status_code)
 
     if (r.status_code == 200):
         # print(r.headers)
@@ -103,7 +103,7 @@ def fx_intraday(currency_from, currency_to, interval = "15min", outputsize="comp
 
     session = requests.Session()    
     r = session.get(urls)
-    print(r.status_code)
+    # print(r.status_code)
 
     if (r.status_code == 200):
         # print(r.headers)
@@ -153,12 +153,12 @@ def fx_intraday(currency_from, currency_to, interval = "15min", outputsize="comp
 
     return msg_txt
 
-
 if __name__ =="__main__":
     tlg = SendNotify()
     
     msg1 = currency_exchange_rate(currency_from="USD", currency_to="RUB")
     msg2 = fx_intraday(currency_from="USD", currency_to="RUB", interval = "15min", outputsize="compact")
-    msg = f"{msg1}\n\n{msg2}"
+    msg3 = currency_exchange_rate(currency_from="BTC", currency_to="USD")
+    msg = f"{msg1}\n\n{msg2}\n{msg3}"
     print(msg)
     tlg.send_msg(msg)
