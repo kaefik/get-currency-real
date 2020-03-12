@@ -107,7 +107,7 @@ def fx_intraday(currency_from, currency_to, interval = "15min", outputsize="comp
 
     if (r.status_code == 200):
         # print(r.headers)
-        print(r.content)
+        #print(r.content)
 
         data_currency_now = r.json()
     
