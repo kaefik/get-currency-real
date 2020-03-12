@@ -47,7 +47,7 @@ def currency_exchange_rate(currency_from, currency_to):
 
     if (r.status_code == 200):
         # print(r.headers)
-        print(r.content)
+        # print(r.content)
 
         data_currency_now = r.json()
 
@@ -157,7 +157,8 @@ def fx_intraday(currency_from, currency_to, interval = "15min", outputsize="comp
 if __name__ =="__main__":
     tlg = SendNotify()
     
-    #msg = currency_exchange_rate(currency_from="USD", currency_to="RUB")
-    msg = fx_intraday(currency_from="USD", currency_to="RUB", interval = "15min", outputsize="compact")
+    msg1 = currency_exchange_rate(currency_from="USD", currency_to="RUB")
+    msg2 = fx_intraday(currency_from="USD", currency_to="RUB", interval = "15min", outputsize="compact")
+    msg = f"{msg1}\n\n{msg2}"
     print(msg)
     tlg.send_msg(msg)
