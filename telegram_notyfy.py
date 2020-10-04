@@ -7,7 +7,8 @@
 import os
 from dotenv import load_dotenv
 from telethon import TelegramClient, events, sync, connection
-
+# pip install python-dotenv
+# pip install Telethon
 
 class SendNotify:
 
@@ -23,7 +24,7 @@ class SendNotify:
         self.bot_token = os.getenv("I_BOT_TOKEN")
         self.client = os.getenv("TLG_CLIENT")
         self.proxy_server = os.getenv("TLG_PROXY_SERVER")
-        self.proxy_port = int(os.getenv("TLG_PROXY_PORT"))
+        self.proxy_port = int(os.getenv("TLG_PROXY_PORT")) if os.getenv("TLG_PROXY_PORT") else 0
         self.proxy_key = os.getenv("TLG_PROXY_KEY")
 
         if self.proxy_server is None or self.proxy_port is None or self.proxy_key is None:
